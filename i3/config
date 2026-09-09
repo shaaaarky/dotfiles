@@ -199,10 +199,10 @@ bindsym Mod4+r mode "resize"
 exec --no-startup-id xrandr --output HDMI-2 --same-as eDP-1 
 
 # Set wallpaper with feh 
-exec --no-startup-id feh --bg-fill /home/sharky/Desktop/Media/Wallpapers/sf.jpeg
+exec --no-startup-id feh --bg-fill /home/sharky/Desktop/Media/Wallpapers/moon.png
 
 # Setting colors 
-set $bgcolor    #666699
+set $bgcolor    #465362
 set $in-bgcolor #363636
 set $text       #ffffff
 set $u-bgcolor  #ff0000
@@ -223,5 +223,11 @@ focus_follows_mouse no
 exec_always --no-startup-id ~/Desktop/dotfiles/polybar/scripts/launch_polybars.sh
 
 # Adding gaps 
-gaps inner 5
-gaps outer 5
+gaps inner 4
+gaps outer 4
+
+# Run compositor 
+exec_always --no-startup-id picom -f --backend glx 
+
+# Removing the terminal's titlebar (broken for now)
+for_window [class="xfce4-terminal"] border pixel 20
