@@ -1,6 +1,6 @@
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font Terminus:style=Regular
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -145,10 +145,10 @@ bindsym Mod4+8 workspace number $ws8
 bindsym Mod4+9 workspace number $ws9
 bindsym Mod4+0 workspace number $ws10
 
-# Set apps to automatically pop up in workspaces 
-for_window [class=firefox-esr] move to workspace $ws2
-for_window [class=Spotify] move to workspace $ws3
-for_window [class=discord] move to workspace $ws5
+# Set apps to automatically pop up in workspaces (Disabled for now)
+#for_window [class=firefox-esr] move to workspace $ws2
+#for_window [class=Spotify] move to workspace $ws3
+#for_window [class=discord] move to workspace $ws5
 
 # move focused container to workspace
 bindsym Mod4+Shift+1 move container to workspace number $ws1
@@ -199,40 +199,87 @@ bindsym Mod4+r mode "resize"
 # Always unify displays
 exec --no-startup-id xrandr --output HDMI-2 --same-as eDP-1 
 
-# Set wallpaper with feh 
-exec --no-startup-id feh --bg-fill /home/sharky/Desktop/Media/Wallpapers/moon.png
+# Set wallpaper with feh: the current theme's wallpaper (theme.py sets it on switch)
+exec --no-startup-id ~/Desktop/dotfiles/Scripts/theme.py wallpaper
 
+# Theme menu (terminal, i3, polybar and wallpaper colours)
+bindsym Mod4+t exec --no-startup-id ~/Desktop/dotfiles/Scripts/theme.py
+
+# Script launcher: search + run everything in dotfiles/Scripts (list comes from README.md)
+bindsym Mod4+x exec --no-startup-id ~/Desktop/dotfiles/Scripts/script_launcher.py
+for_window [class="Script-launcher"] floating enable, border pixel 0, move position center
+
+
+### OLD COLORS
 # Setting colors 
-set $bgcolor    #465362
-set $in-bgcolor #363636
-set $text       #ffffff
-set $u-bgcolor  #ff0000
-set $indicator  #a8a3c1
-set $in-text    #969696
-set $black	#000000
+#set $bgcolor    #465362
+#set $in-bgcolor #363636
+#set $text       #ffffff
+#set $u-bgcolor  #ff0000
+#set $indicator  #a8a3c1
+#set $in-text    #969696
+#set $black	#000000
 
 #                       border          background      text            indicator (a line which shows where the next window will be placed)     
-client.focused          $bgcolor        $bgcolor        $text           $indicator
-client.unfocused        $black     	$in-bgcolor     $text        	$in-bgcolor
-client.focused_inactive $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
-client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcolor 
+#client.focused          $bgcolor        $bgcolor        $text           $indicator
+#client.unfocused        $black     	$in-bgcolor     $text        	$in-bgcolor
+#client.focused_inactive $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
+#client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcolor 
+
+### THEME COLORS
+# Window colours come from the current theme. Switch with Mod4+t or
+# ~/Desktop/dotfiles/Scripts/theme.py NAME; edit ~/Desktop/dotfiles/themes/*.theme
+include ~/Desktop/dotfiles/themes/current/i3.conf
+
+default_border pixel 2
+default_floating_border pixel 2
 
 # Disable switching focus on mouse
 focus_follows_mouse no
 
 # Run polybar launch script
-exec_always --no-startup-id ~/Desktop/dotfiles/polybar/scripts/launch_polybars.sh
+# start the bar picked last in choose_polybar.sh (was: Polybar/full/scripts/launch_polybars.sh)
+exec_always --no-startup-id ~/Desktop/dotfiles/Scripts/choose_polybar.sh --last
+
+# No error beeps (X bell -> PC speaker)
+exec_always --no-startup-id xset b off
 
 # Adding gaps 
 gaps inner 4
 gaps outer 4
+# room for the floating Polybar/pixel bar: 6 gap + 36 bar + 4 outer
+gaps top 46
 
 # Run compositor 
-exec_always --no-startup-id picom -f --backend glx 
+# compositor: avoids garbage frames when switching workspaces
+# settings (fast ~28ms fade, glx, vsync) live in dotfiles/picom/picom.conf
+exec_always --no-startup-id picom --config ~/Desktop/dotfiles/picom/picom.conf
+# tags windows once they have opened, so picom only plays the open ripple for new ones
+exec_always --no-startup-id ~/Desktop/dotfiles/picom/mark_seen.py
 
 # Removing the terminal's titlebar (broken for now)
 for_window [class="xfce4-terminal"] border pixel 20
 
+# New terminals float, 960x600, centred on the screen ((?i) because the class is "Xfce4-terminal")
+for_window [class="(?i)^xfce4-terminal$"] floating enable, resize set 960 600, move position center
+
 # Binding brightness buttons on keyboard to brightnessctl 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+
+# Bind for screenshotting
+bindsym Mod4+g exec scrot -s -f '/home/sharky/Screenshots/%Y-%m-%d_%H-%M-%S.png'
+
+# Set keyboard layout 
+exec_always --no-startup-id setxkbmap es
+
+# Alt-Tab Behaviour: pixel workspace switcher (hold Alt, tap Tab, release to switch)
+# old: bindsym Mod1+Tab exec --no-startup-id rofi -show window
+bindsym Mod1+Tab exec --no-startup-id ~/Desktop/dotfiles/Polybar/pixel/scripts/pixelpop.py switcher
+
+# Run the jiggle script to remove inactivity countdown 
+exec_always --no-startup-id ~/Desktop/dotfiles/Scripts/jiggle.sh
+
+# Log battery % every minute for the history graph in the power popup (single instance)
+exec_always --no-startup-id ~/Desktop/dotfiles/Polybar/pixel/scripts/battery_log.sh
+
