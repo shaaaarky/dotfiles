@@ -1,0 +1,25 @@
+# Arasaka: corporate red on black
+# Same keys as moss.theme (see it for what each one colours).
+
+wallpaper      = arasaka.webp
+wallpaper_mode = fill
+
+bg      = #0d0809
+bg_alt  = #1a0e10
+bg_hi   = #2a1215
+border  = #4a1a1f
+fg      = #e8d6d3
+dim     = #8a6a6c
+accent  = #d7263d
+warn    = #f08a3c
+alert   = #f5c542
+
+#            normal              bright
+color0  = #1a0e10   color8  = #4a2e31
+color1  = #d7263d   color9  = #ff4d5e
+color2  = #6fbf73   color10 = #8fd694
+color3  = #f5c542   color11 = #ffd866
+color4  = #5f87af   color12 = #82aadf
+color5  = #c3407a   color13 = #e070a0
+color6  = #5fafaf   color14 = #7fd4d4
+color7  = #c8b5b2   color15 = #f2e6e4

@@ -1,0 +1,9 @@
+[blue standard]
+background = #000000
+background-alt = #373B41
+foreground = #ffffff
+primary = #9dbfcc
+secondary = #8ABEB7
+alert = #A54242
+disabled = #707880
+red = #b82c2c

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ~/.config/polybar/scripts/network_status.sh
+# ~/Desktop/dotfiles/Polybar/minimal/scripts/network_status.sh
 
 iface=$(ip route show default | awk '/default/ {print $5; exit}')
 

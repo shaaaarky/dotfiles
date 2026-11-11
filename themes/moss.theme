@@ -1,0 +1,42 @@
+# Moss: misty forest greens (the original Polybar/pixel colours)
+#
+# A theme is `key = value` lines; `#` lines are comments, and text after a
+# colour is ignored (handy for notes). Colours are #rrggbb.
+# Apply with:  ~/Desktop/dotfiles/Scripts/theme.py moss
+
+# Wallpaper: a file in ~/Desktop/Wallpapers, or a full path
+wallpaper      = forest.jpg
+# fill | center | max | scale | tile   (center/max pad the edges with `bg`)
+wallpaper_mode = fill
+
+# ---- desktop: bar, popups, window borders --------------------------------
+bg      = #353e40   bar + popup background, unfocused window borders
+bg_alt  = #3d474a   buttons and rows in popups
+bg_hi   = #43504f   selected card in the Alt+Tab switcher
+border  = #4a5659   bar border, separators, inactive window borders
+fg      = #d8d2c8   text
+dim     = #8a949a   secondary text, muted volume
+accent  = #8db38b   focused window, active workspace, labels, meters
+warn    = #d8a657   warnings (slow network, ...)
+alert   = #c96a5f   errors, urgent windows, power button, CPU/RAM over limit
+
+# ---- terminal ------------------------------------------------------------
+# term_bg / term_fg default to bg / fg; cursor defaults to accent and
+# selection to border. cursor / selection can also be `default` (the
+# terminal's own colours). indicator (i3: where the next window will open)
+# defaults to color6.
+# Moss keeps the terminal exactly as it was before themes existed.
+term_fg   = #dadada
+cursor    = default
+selection = default
+#            normal              bright
+color0  = #000000   color8  = #d6f1e5
+color1  = #aa0000   color9  = #ff5555
+color2  = #00aa00   color10 = #55ff55
+color3  = #aa5500   color11 = #ffff55
+color4  = #86b1dd   color12 = #5c80ff
+color5  = #aa00aa   color13 = #ff55ff
+color6  = #00aaaa   color14 = #55ffff
+color7  = #5f957a   color15 = #ffffff
+# indicator: the old palette's cyan would clash with the bar, keep it soft
+indicator = #83b6a8

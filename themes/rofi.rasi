@@ -1,0 +1,95 @@
+/*
+ * rofi theme that follows ~/Desktop/dotfiles/Scripts/theme.py
+ *
+ * Layout lives here; the colours (@th-bg, @th-accent, ...) come from
+ * themes/current/rofi.rasi, which theme.py rewrites on every switch.
+ * Styled like the Polybar/pixel popups: square, 2px border, bitmap font.
+ */
+@import "~/Desktop/dotfiles/themes/current/rofi.rasi"
+
+* {
+    background-color: transparent;
+    text-color:       @th-fg;
+    spacing:          0;
+    margin:           0;
+    padding:          0;
+}
+
+window {
+    location:         center;
+    width:            640px;
+    background-color: @th-bg;
+    border:           2px;
+    border-color:     @th-border;
+    border-radius:    0;
+}
+
+mainbox {
+    padding:  12px;
+    spacing:  10px;
+    children: [ inputbar, message, listview ];
+}
+
+inputbar {
+    padding:          6px 8px;
+    spacing:          10px;
+    background-color: @th-bg-alt;
+    border:           0 0 2px 0;
+    border-color:     @th-accent;
+    children:         [ prompt, entry ];
+}
+prompt { text-color: @th-accent; }
+entry {
+    placeholder:       "type to search";
+    placeholder-color: @th-dim;
+    cursor:            text;
+}
+
+message {
+    padding:          6px 8px;
+    background-color: @th-bg-alt;
+}
+textbox { text-color: @th-fg; }
+
+listview {
+    lines:        8;
+    fixed-height: true;
+    scrollbar:    false;
+    spacing:      2px;
+}
+
+element {
+    padding:      5px 8px;
+    spacing:      10px;
+    border:       0 0 0 4px;
+    border-color: transparent;
+    cursor:       pointer;
+}
+element normal.normal, element alternate.normal { text-color: @th-fg; }
+element normal.active, element alternate.active { text-color: @th-accent; }
+element normal.urgent, element alternate.urgent { text-color: @th-alert; }
+element selected.normal {
+    background-color: @th-bg-hi;
+    border-color:     @th-accent;
+    text-color:       @th-accent;
+}
+element selected.active {
+    background-color: @th-bg-hi;
+    border-color:     @th-warn;
+    text-color:       @th-warn;
+}
+element selected.urgent {
+    background-color: @th-alert;
+    border-color:     @th-alert;
+    text-color:       @th-bg;
+}
+element-icon {
+    size:             1.2em;
+    background-color: transparent;
+}
+element-text {
+    text-color:       inherit;
+    background-color: transparent;
+    vertical-align:   0.5;
+    highlight:        bold underline;
+}

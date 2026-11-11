@@ -1,0 +1,25 @@
+# Phosphor: green CRT glow
+# Same keys as moss.theme (see it for what each one colours).
+
+wallpaper      = 4.jpg
+wallpaper_mode = center
+
+bg      = #051304
+bg_alt  = #0b1f0c
+bg_hi   = #143019
+border  = #1f4a28
+fg      = #a8e6a0
+dim     = #4f8a55
+accent  = #5fdc6a
+warn    = #d8d860
+alert   = #ff6050
+
+#            normal              bright
+color0  = #0b1f0c   color8  = #2a5a32
+color1  = #ff6050   color9  = #ff8070
+color2  = #5fdc6a   color10 = #8ff09a
+color3  = #d8d860   color11 = #f0f080
+color4  = #4fb0a0   color12 = #70d0c0
+color5  = #8fd06a   color13 = #b0f090
+color6  = #70e0b0   color14 = #a0f0d0
+color7  = #a8e6a0   color15 = #d8ffd0

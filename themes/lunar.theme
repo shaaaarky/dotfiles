@@ -1,0 +1,25 @@
+# Lunar: deep space navy and ice blue
+# Same keys as moss.theme (see it for what each one colours).
+
+wallpaper      = moon.png
+wallpaper_mode = fill
+
+bg      = #0e1420
+bg_alt  = #161e2e
+bg_hi   = #1f2a40
+border  = #2a3854
+fg      = #d4def0
+dim     = #7686a6
+accent  = #8fb8ff
+warn    = #e8c27a
+alert   = #e8707a
+
+#            normal              bright
+color0  = #161e2e   color8  = #3a4a68
+color1  = #e8707a   color9  = #ff8a92
+color2  = #8fd0a8   color10 = #a8e8c0
+color3  = #e8c27a   color11 = #ffd896
+color4  = #8fb8ff   color12 = #b0ceff
+color5  = #b8a0f0   color13 = #d0bcff
+color6  = #80d0e0   color14 = #a0e4f0
+color7  = #b8c4d8   color15 = #eef3fc

@@ -9,12 +9,12 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 # Launch polybar on each connected monitor
 #if type "xrandr" >/dev/null 2>&1; then
 #    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-#        MONITOR=$m polybar --reload main -c ~/.config/polybar/config.ini &
+#        MONITOR=$m polybar --reload minimalist -c ~/Desktop/dotfiles/Polybar/minimal/config.ini &
 #    done
 #else
-#    polybar --reload main -c ~/.config/polybar/config.ini &
+#    polybar --reload minimalist -c ~/Desktop/dotfiles/Polybar/minimal/config.ini &
 #fi
 # Launching just one polybar 
-polybar --reload main -c ~/.config/polybar/config.ini &
+polybar --reload minimalist -c ~/Desktop/dotfiles/Polybar/minimal/config.ini &
 
 echo "Polybar launched"

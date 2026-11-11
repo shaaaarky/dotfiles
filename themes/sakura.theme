@@ -1,0 +1,25 @@
+# Sakura: pink and gold on black
+# Same keys as moss.theme (see it for what each one colours).
+
+wallpaper      = marin.jpg
+wallpaper_mode = fill
+
+bg      = #141113
+bg_alt  = #1f191c
+bg_hi   = #2d2227
+border  = #3d2e35
+fg      = #f0e2dc
+dim     = #9a8890
+accent  = #ef8fa8
+warn    = #e9c17a
+alert   = #e0566c
+
+#            normal              bright
+color0  = #1f191c   color8  = #4d3d44
+color1  = #e0566c   color9  = #f07a8c
+color2  = #a8c98a   color10 = #c0dea6
+color3  = #e9c17a   color11 = #f5d79c
+color4  = #8aa8d8   color12 = #a8c0ec
+color5  = #ef8fa8   color13 = #f6aec0
+color6  = #88c8c0   color14 = #a6e0d8
+color7  = #d0c0c0   color15 = #faf0ec

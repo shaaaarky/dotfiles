@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ~/.config/polybar/scripts/network_speed.sh
+# ~/Desktop/dotfiles/Polybar/minimal/scripts/network_speed.sh
 # Detects the active default-route interface and reports its
 # upload/download speed, sampled over a fixed interval.
  
