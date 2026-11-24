@@ -112,6 +112,17 @@ check_commands() {
   if command -v fc-list >/dev/null 2>&1 && ! fc-list -q Terminus; then
     warn "Terminus font not found (pacman -S terminus-font); i3 and the pixel bar use it"
   fi
+
+  local wallpapers="${THEME_WALLPAPERS:-"$HOME/Desktop/Wallpapers"}"
+  if [[ ! -d "$wallpapers" ]]; then
+    warn "$wallpapers doesn't exist; the themes look for their wallpapers there (or set THEME_WALLPAPERS)"
+  fi
+}
+
+# Folders the configs write into
+make_dirs() {
+  # Mod4+g screenshots (scrot fails if the folder is missing)
+  mkdir -p -- "$HOME/Screenshots"
 }
 
 link_repo
@@ -122,6 +133,7 @@ for config in "${configs[@]}"; do
   link_config "$config"
 done
 
+make_dirs
 check_commands
 
 log "Done."

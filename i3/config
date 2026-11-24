@@ -268,7 +268,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
 # Bind for screenshotting
-bindsym Mod4+g exec scrot -s -f '/home/sharky/Screenshots/%Y-%m-%d_%H-%M-%S.png'
+bindsym Mod4+g exec scrot -s -f "$HOME/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
 # Set keyboard layout 
 exec_always --no-startup-id setxkbmap es
